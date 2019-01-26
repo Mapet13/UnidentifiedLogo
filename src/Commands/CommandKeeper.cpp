@@ -14,7 +14,7 @@ namespace UnLOGO
         return false;
     }
 
-    std::unique_ptr<Command>* CommandKeeper::Get(const std::string& name)
+    CommandKeeper::Command_t* CommandKeeper::Get(const std::string& name)
     {
         if (auto it = commands.find(name); it != commands.end()) 
             return &it->second;
