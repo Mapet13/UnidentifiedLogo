@@ -93,7 +93,8 @@ public:
 void interpet(std::string str)
 {
     std::transform(str.begin(), str.end(), str.begin(), ::toupper);
-    std::string strComm = cutTherefirstWord(str)
+    auto pos = str.find(" ")+1;
+    std::string strComm = substr(0, pos != std::string::npos ? pos : str.length());
     std::string strArgs = str
 
     auto comm = getCommand(strComm);

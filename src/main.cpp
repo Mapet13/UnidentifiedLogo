@@ -1,14 +1,11 @@
 #include <iostream>
 
-#include "Window/Window.hpp"
+#include "App/App.hpp"
 
 int main()
 {
-    UnLOGO::Window win; // temp
-    win.create(sf::VideoMode(500, 500));
-    while (win.isOpen()) {
-       win.update();
-    }
- 
+    UnLOGO::App app; // temp
+    app.run();
+
     return 0;
 }

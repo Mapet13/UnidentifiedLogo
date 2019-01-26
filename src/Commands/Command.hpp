@@ -18,7 +18,10 @@ namespace UnLOGO
         Command() = default;
         virtual ~Command() = default;
          
-        virtual void execute() = 0;
+        //TODO: find a better way to do it
+        virtual void execute() {};
+        virtual void execute(int) {};
+        virtual void execute(const std::string&) {};
     };
 
     class UsrCommand : public Command
