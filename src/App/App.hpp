@@ -3,21 +3,26 @@
 #include "Window/Window.hpp"
 
 #include <thread>
+#include <functional>
 
 namespace UnLOGO
 {
+
     class App
     {
     public:
         App();
+        ~App();
 
         void run();
 
     private:
-        void winLoop();
-
         Window win;
-        std::thread winThread {&App::winLoop, this};
+        std::string input;
+        std::thread inputThread{&App::getInput, this, std::ref(input)};
+
+        void getInput(std::string& input);
 
     };
+
 }
