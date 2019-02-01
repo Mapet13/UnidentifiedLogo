@@ -23,6 +23,7 @@ namespace UnLOGO
         win.create(sf::VideoMode(500, 500));
         while (win.isOpen()) {
             win.update();
+            checkInput();
         }
     }
 
@@ -30,6 +31,13 @@ namespace UnLOGO
     {
         while(true) {
             std::getline(std::cin, input);
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        }
+    }
+
+    void App::checkInput()
+    {
+        if(!input.empty()) {
             std::cout << input << "\n\n\n"; // for testing
             input.clear();
         }

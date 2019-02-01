@@ -22,6 +22,7 @@ namespace UnLOGO
         std::thread inputThread{&App::getInput, this, std::ref(input)};
 
         void getInput(std::string& input);
+        void checkInput();
 
     };
 
