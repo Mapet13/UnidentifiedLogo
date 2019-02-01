@@ -1,16 +1,9 @@
 #include "App.hpp"
 
 #include <iostream>
-#include <future>
-#include <thread>
 
 namespace UnLOGO
 {
-
-    App::App()
-    {
-
-    }
 
     App::~App()
     {
@@ -20,11 +13,18 @@ namespace UnLOGO
 
     void App::run()
     {
-        win.create(sf::VideoMode(500, 500));
-        while (win.isOpen()) {
-            win.update();
+        init();
+
+        while (window.isOpen()) {
+            window.update();
             checkInput();
         }
+    }
+
+    void App::init()
+    {
+        window.create(sf::VideoMode(500, 500));
+        inputThread = std::thread(&App::getInput, this, std::ref(input));
     }
 
     void App::getInput(std::string& input)
