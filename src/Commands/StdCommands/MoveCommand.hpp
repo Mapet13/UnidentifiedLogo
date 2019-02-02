@@ -9,6 +9,7 @@ namespace UnLOGO
     class ForwardCommand : public StdCommand
     {
         REGISTER(ForwardCommand, "FORWARD")
+
     public:
         void execute() override {}
     };
@@ -16,6 +17,7 @@ namespace UnLOGO
     class BackCommand : public StdCommand
     {
         REGISTER(BackCommand, "BACK")
+        
     public:
         void execute() override {}
     };

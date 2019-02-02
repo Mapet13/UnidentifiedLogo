@@ -2,12 +2,15 @@
 
 #include <SFML/Window/Event.hpp>
 
+#include "Utilities/Log.hpp"
+
 namespace UnLOGO
 {
 
     void Window::create(const sf::VideoMode& videoMode)
     {
         window.create(videoMode, "UnLOGO");
+        LOG("Window created (", videoMode.width, "x", videoMode.height, ")");
     }
 
     bool Window::isOpen()
