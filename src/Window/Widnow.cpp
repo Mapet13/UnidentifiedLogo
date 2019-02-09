@@ -20,7 +20,7 @@ namespace UnLOGO
 
     void Window::update()
     {
-        window.clear();
+        window.clear(board.getBackgroundColor());
         draw();   
         window.display();
         handleEvents();

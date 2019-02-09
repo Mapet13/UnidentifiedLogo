@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "Board/Board.hpp"
 
 namespace UnLOGO
 {
@@ -13,10 +14,11 @@ namespace UnLOGO
         void update();
 
     private:
-        sf::RenderWindow window;
-
         void draw();
         void handleEvents();
+
+        sf::RenderWindow window;
+        Board board;
     };
 
 }
