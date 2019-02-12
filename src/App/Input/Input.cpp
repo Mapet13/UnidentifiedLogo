@@ -7,13 +7,14 @@ namespace UnLOGO
 
     Input::~Input()
     {
-        //can't be call before the init
-        inputThread.detach();
+        if (initalized)
+            inputThread.detach();
     }
 
     void Input::init()
     {
         inputThread = std::thread([this](std::string& input){ this->getInput(input); }, std::ref(input));
+        initalized = true;
     }
 
     std::string& Input::getInput()
