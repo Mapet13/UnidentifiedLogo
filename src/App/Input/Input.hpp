@@ -16,7 +16,7 @@ namespace UnLOGO
     private:
         void getInput(std::string& input);
 
-        std::string input;
+        std::string input { "" };
         std::thread inputThread;         
     };
 

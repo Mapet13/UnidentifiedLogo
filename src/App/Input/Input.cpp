@@ -7,6 +7,7 @@ namespace UnLOGO
 
     Input::~Input()
     {
+        //can't be call before the init
         inputThread.detach();
     }
 

@@ -8,7 +8,7 @@
 namespace UnLOGO::Test
 {
 
-    SCENARIO("INPUT")
+    SCENARIO("Input")
     {
         Input input;
         
@@ -18,12 +18,14 @@ namespace UnLOGO::Test
             THEN("String is empty")
                 REQUIRE(string.empty() == true);
 
-            WHEN("Call input init") {
-                   
-            }
+            //WHEN("Call input init") {
+
+            //}
 
 
         }
+
+        input.init();
     }
 
 }
