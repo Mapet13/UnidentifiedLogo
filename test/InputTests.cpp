@@ -22,17 +22,20 @@ namespace UnLOGO::Test
         
         GIVEN("String reference of input") {
             Input input;
+            std::string testInput[2] {"one", "two"};
             auto& string = input.getInput();
 
-            THEN("String is empty")
+            THEN("Input string is empty")
                 REQUIRE(string.empty() == true);
 
             WHEN("Call input init") {
                 input.init();
 
-                AND_WHEN("") {
+                AND_WHEN("Pass the first test input") 
+                    THEN("Input string is equal to the first test input")
 
-                }
+                AND_WHEN("Pass the second test input") 
+                    THEN("Input string is equal to the second test input")
             
             }
 
