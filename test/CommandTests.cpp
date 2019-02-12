@@ -1,7 +1,4 @@
-#define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
-
-#include "Utilities/Log.hpp"
+#include "Test.hpp"
 
 #include "Commands/Command.hpp"
 #include "Commands/CommandKeeper.hpp"
@@ -17,18 +14,21 @@ namespace UnLOGO::Test
         void execute() override { executed = true; }
     };
 
-    TEST_CASE("Adding and using new standard command", "[CommandKeeper]") 
+    SCENARIO("Command Keeper") 
     {
-        auto testCommand = CommandKeeper::Get("TEST");
+        GIVEN("Command returned by CommandKeeper") {
+            auto testCommand = CommandKeeper::Get("TEST");
 
-        SECTION("Test if CommandKeeper correctly returned the command") {
-            REQUIRE(*testCommand != nullptr);
+            THEN("It isn't a NULL")
+                REQUIRE(*testCommand != nullptr);
+
+            WHEN("Call execute function") {
+                (*testCommand)->execute();
+
+                THEN("Function was called")
+                    REQUIRE(TestCommand::executed == true);
+            }
+
         }
-
-        SECTION("Test if CommandKeeper correctly executed the command") {
-            (*testCommand)->execute();
-            REQUIRE(TestCommand::executed == true);
-        }
-
     }
 }
