@@ -10,7 +10,7 @@ namespace UnLOGO
     public:
         const sf::Color& getBackgroundColor() const  { return backgroundColour; };
         
-        void setBackGroudColor(const sf::Color& bc)  { backgroundColour = bc; };
+        void setBackgroudColor(const sf::Color& bc)  { backgroundColour = bc; };
         void setBackgroundDefoultColor()             { backgroundColour = defaultColor; };
 
     private:

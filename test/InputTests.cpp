@@ -29,7 +29,7 @@ namespace UnLOGO::Test
 
         }
         
-        GIVEN("String reference of input, testInput array") {
+        GIVEN("Input instance, String reference of input, testInput array") {
             Input input;
             std::string testInput[2] {"one", "two"};
             auto& string = input.getInput();
