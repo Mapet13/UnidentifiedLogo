@@ -4,6 +4,7 @@
 #include "Input/Input.hpp"
 
 #include <thread>
+#include <tuple>
 
 namespace UnLOGO
 {
@@ -19,6 +20,8 @@ namespace UnLOGO
 
         Window window;
         Input input;
+
+        std::tuple<Window*, Input*, App*> modules { std::make_tuple(&window, &input, this) };
     };
 
 }

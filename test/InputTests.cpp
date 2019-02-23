@@ -6,16 +6,20 @@
 #include <sstream>
 #include <string>
 
-void passInput(const std::string& input)
-{
-    static std::istringstream iss;
-
-    iss = std::istringstream(input);
-    std::cin.rdbuf(iss.rdbuf());
-}
-
 namespace UnLOGO::Test
 {
+
+    namespace Utilities {
+
+        void passInput(const std::string& input)
+        {
+            static std::istringstream iss;
+
+            iss = std::istringstream(input);
+            std::cin.rdbuf(iss.rdbuf());
+        }
+
+    }
 
     SCENARIO("Input")
     {
@@ -41,7 +45,7 @@ namespace UnLOGO::Test
                 input.init();
 
                 AND_WHEN("Pass the empty input") {
-                    passInput("");
+                    Utilities::passInput("");
                     
                     THEN("Input string is still empty") {
                         std::this_thread::sleep_for(std::chrono::milliseconds(1));
@@ -49,7 +53,7 @@ namespace UnLOGO::Test
                     }
                 }
                 AND_WHEN("Pass the first test input") {
-                    passInput(testInput[0]);
+                    Utilities::passInput(testInput[0]);
                     
                     THEN("Input string is equal to the first test input") {
                         std::this_thread::sleep_for(std::chrono::milliseconds(6));
@@ -58,7 +62,7 @@ namespace UnLOGO::Test
                 }
 
                 AND_WHEN("Pass the second test input") {
-                    passInput(testInput[1]);
+                    Utilities::passInput(testInput[1]);
 
                     THEN("Input string is equal to the second test input") {
                         std::this_thread::sleep_for(std::chrono::milliseconds(1));

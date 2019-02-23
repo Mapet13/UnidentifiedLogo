@@ -2,13 +2,16 @@
 
 #include <string>
 #include <memory>
+#include <any>
+#include <optional>
 
 namespace UnLOGO 
 {
-
     #define REGISTER(T, Name)                                                                                  \
         public:  static std::string GetStringName() { return Name; }                                               \
         private: inline static bool Registered = CommandKeeper::Register(Name, std::move(std::make_unique<T>()));
+
+    #define CommandParam_t [[maybe_unused]] std::any
 
     class Command
     {
@@ -16,15 +19,7 @@ namespace UnLOGO
         Command() = default;
         virtual ~Command() = default;
          
-        //TODO: find a better way to do it
-        virtual void execute() {};
-        virtual void execute(int) {};
-        virtual void execute(const std::string&) {};
+        virtual void execute(CommandParam_t param) {};
     };
-
-    class UsrCommand : public Command
-    {};
-    class StdCommand : public Command
-    {};
 
 }

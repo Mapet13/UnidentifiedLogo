@@ -6,20 +6,20 @@
 namespace UnLOGO 
 {
 
-    class ForwardCommand : public StdCommand
+    class ForwardCommand : public Command
     {
         REGISTER(ForwardCommand, "FORWARD")
 
     public:
-        void execute() override {}
+        void execute(CommandParam_t param) override {}
     };
 
-    class BackCommand : public StdCommand
+    class BackCommand : public Command
     {
         REGISTER(BackCommand, "BACK")
         
     public:
-        void execute() override {}
+        void execute(CommandParam_t param) override {}
     };
 
 }
