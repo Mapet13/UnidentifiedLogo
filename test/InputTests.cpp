@@ -9,7 +9,8 @@
 namespace UnLOGO::Test
 {
 
-    namespace Utilities {
+    namespace Utilities 
+    {
 
         void passInput(const std::string& input)
         {

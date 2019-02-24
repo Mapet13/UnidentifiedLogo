@@ -21,7 +21,7 @@ namespace UnLOGO
         Window window;
         Input input;
 
-        std::tuple<Window*, Input*, App*> modules { std::make_tuple(&window, &input, this) };
+        ModuleHolder<Window*, Input*, App*> modules;
     };
 
 }

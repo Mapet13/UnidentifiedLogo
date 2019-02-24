@@ -6,7 +6,8 @@
 namespace UnLOGO::Test
 {
 
-    namespace Utilities {
+    namespace Utilities 
+    {
 
         class CommandWithNoParameters : public Command
         {
@@ -29,7 +30,7 @@ namespace UnLOGO::Test
 
     }
 
-    SCENARIO("Command Keeper") 
+    SCENARIO("Commands") 
     {
         GIVEN("Command with no parameters returned by CommandKeeper") {
             auto testCommand = CommandKeeper::Get("NoParamerers");
