@@ -2,10 +2,5 @@
 
 namespace UnLogo
 {
-    
-    class Module
-    {
-        
-    };
 
 }

@@ -1,14 +1,15 @@
 #pragma once
 
-namespace UnLogo
+#include <tuple>
+
+namespace UnLOGO
 {
 
-    template <typename... T>
     class ModuleHolder
     {
     public:
-        static const std::tuple<(T*)...> Modules;
-        
+        static std::tuple* Modules;
+
     };
 
 }

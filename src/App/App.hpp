@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Modules/ModuleHolder.hpp"
 #include "Window/Window.hpp"
 #include "Input/Input.hpp"
 
@@ -21,7 +22,7 @@ namespace UnLOGO
         Window window;
         Input input;
 
-        ModuleHolder<Window*, Input*, App*> modules;
+        ModuleHolder::Modules = new std::tuple<Window*, Input*, App*>(window*, input*, this);
     };
 
 }
