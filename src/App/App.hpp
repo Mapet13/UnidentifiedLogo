@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Modules/ModuleHolder.hpp"
-#include "Window/Window.hpp"
+#include "Display/Display.hpp"
 #include "Input/Input.hpp"
+
 
 #include <thread>
 #include <tuple>
@@ -19,10 +19,8 @@ namespace UnLOGO
         void init();
         void checkInput();
 
-        Window window;
+        Display display;
         Input input;
-
-        ModuleHolder::Modules = new std::tuple<Window*, Input*, App*>(window*, input*, this);
     };
 
 }

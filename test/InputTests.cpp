@@ -1,6 +1,6 @@
 #include "Test.hpp"
 
-#include "App/Input/Input.hpp"
+#include "Input/Input.hpp"
 
 #include <iostream>
 #include <sstream>

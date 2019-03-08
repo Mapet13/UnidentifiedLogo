@@ -9,15 +9,15 @@ namespace UnLOGO
     {
         init();
 
-        while (window.isOpen()) {
-            window.update();
+        while (display.isWindowOpen()) {
+            display.update();
             checkInput();
         }
     }
 
     void App::init()
     {
-        window.create(sf::VideoMode(500, 500));
+        display.windowCreate(sf::VideoMode(500, 500));
         input.init();
     }
 

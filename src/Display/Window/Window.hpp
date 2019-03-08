@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics/RenderWindow.hpp>
-#include "Board/Board.hpp"
 
 namespace UnLOGO
 {
@@ -10,15 +9,13 @@ namespace UnLOGO
     {
     public:
         void create(const sf::VideoMode& videoMode);
-        bool isOpen();
         void update();
+        bool isOpen();
 
     private:
-        void draw();
         void handleEvents();
 
         sf::RenderWindow window;
-        Board board;
     };
 
 }
