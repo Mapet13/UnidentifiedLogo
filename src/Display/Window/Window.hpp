@@ -11,6 +11,7 @@ namespace UnLOGO
         void create(const sf::VideoMode& videoMode);
         void update();
         bool isOpen();
+        void draw(const sf::Drawable& drawable);
 
     private:
         void handleEvents();

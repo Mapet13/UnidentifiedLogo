@@ -16,14 +16,14 @@ namespace UnLOGO
             drawFunctions.emplace(prority, std::list<drawFunction_t>());
             drawFunctions.find(prority)->second.emplace_back(func);
         }
-
     }
 
     void DrawableElements::draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         for (auto& it : drawFunctions) {
-            for (auto& func : it.second)
-                (this->*func)(target, states);
+            for (auto& func : it.second) {
+                std::invoke(func, target, states);
+            }
         }
     }
 

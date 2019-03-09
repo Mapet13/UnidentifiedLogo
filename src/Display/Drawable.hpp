@@ -21,8 +21,12 @@ namespace UnLOGO
     public:
         Drawable()
         {
-            DrawableElements::addElement((static_cast<int>(prority)), &Drawable::draw);
+            using namespace std::placeholders;
+            DrawableElements::addElement((static_cast<int>(prority)), std::bind(&Drawable::draw, this, _1, _2));
         }
+
+    protected:
+        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override = 0;
 
     };
 

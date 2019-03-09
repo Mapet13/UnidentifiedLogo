@@ -16,6 +16,7 @@ namespace UnLOGO
     void Display::update()
     {
         window.update();
+        window.draw(drawableElements);
     }
 
 }

@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Window/Window.hpp"
-#include "GUI/GUI.hpp"
+#include "Board/Board.hpp"
+#include "DrawableElements.hpp"
 
 namespace UnLOGO
 {
@@ -15,7 +16,8 @@ namespace UnLOGO
 
     private:
         Window window;
-        GUI gui;
+        DrawableElements drawableElements;
+        Board board;
 
     };
 

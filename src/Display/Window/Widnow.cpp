@@ -25,6 +25,11 @@ namespace UnLOGO
         return window.isOpen();
     }
 
+    void Window::draw(const sf::Drawable& drawable)
+    {
+        window.draw(drawable);
+    }
+
     void Window::handleEvents()
     {
         sf::Event event;
