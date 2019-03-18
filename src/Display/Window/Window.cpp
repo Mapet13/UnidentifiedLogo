@@ -1,4 +1,4 @@
-#include "Window.hpp"
+#include "Display/Window/Window.hpp"
 
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>

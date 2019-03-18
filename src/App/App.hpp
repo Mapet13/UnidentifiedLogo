@@ -3,7 +3,6 @@
 #include "Display/Display.hpp"
 #include "Input/Input.hpp"
 
-
 #include <thread>
 #include <tuple>
 
