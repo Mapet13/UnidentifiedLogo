@@ -1,6 +1,6 @@
 #include "App/App.hpp"
 
-int main()
+int main() // just open the Application
 {
     UnLOGO::App app;
     app.run();

@@ -1,6 +1,6 @@
 #include "App.hpp"
 
-#include <iostream>
+#include "Utilities/Log.hpp"
 
 namespace UnLOGO
 {
@@ -25,7 +25,10 @@ namespace UnLOGO
     {
         auto& inp = input.getInput();
         if (!inp.empty()) {
-            std::cout << inp << "\n\n\n"; // for testing
+            LOG(inp, "\n\n\n"); // for testing
+
+            commandManager.manageInput(inp);
+
             inp.clear();
         }
     }
