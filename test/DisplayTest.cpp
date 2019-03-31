@@ -32,20 +32,26 @@ namespace UnLOGO::Test
 
         };
 
-        class fakeDrawable_BACK : public Drawable<Prority::back> {
+        class FakeDrawable_BACK : public Drawable<Prority::back> {
             virtual void draw([[maybe_unused]]sf::RenderTarget& target, [[maybe_unused]]sf::RenderStates states) const {
                 TestData::order.push_back("BACK");
             }
         };
-        class fakeDrawable_MID : public Drawable<Prority::mid> {
+        class FakeDrawable_MID : public Drawable<Prority::mid> {
             virtual void draw([[maybe_unused]]sf::RenderTarget& target, [[maybe_unused]]sf::RenderStates states) const {
                 TestData::order.push_back("MID");
             }
         };
-        class fakeDrawable_FRONT : public Drawable<Prority::front> {
+        class FakeDrawable_FRONT : public Drawable<Prority::front> {
             virtual void draw([[maybe_unused]]sf::RenderTarget& target, [[maybe_unused]]sf::RenderStates states) const {
                 TestData::order.push_back("FRONT");
             }
+        };
+
+        struct FakeDrawable {
+            FakeDrawable_FRONT front;
+            FakeDrawable_MID mid;
+            FakeDrawable_BACK back;
         };
 
     }
@@ -56,16 +62,21 @@ namespace UnLOGO::Test
             Utilities::FakeWindow win;
 
             WHEN("None of drawable objects was declared")
-            THEN("Not throw an exception while drawing")
+            THEN("Not throw an exception while drawing") {
                 REQUIRE_NOTHROW(win.draw());
+                
+                AND_THEN("None of drawable objects has been drawn") {
+                    REQUIRE(Utilities::TestData::order.empty());
+                    Utilities::TestData::order.clear();
+                }
+            
+            }
 
         }
 
         GIVEN("FakeWindow instance, vector with the order of calling draw functions, counter[test performed 10 times], drawables[back, mid, front]") {
             Utilities::FakeWindow win;
-            Utilities::fakeDrawable_BACK back;
-            Utilities::fakeDrawable_MID mid;
-            Utilities::fakeDrawable_FRONT front;
+            Utilities::FakeDrawable fakeDrawable;
             const std::vector<std::string> correctOrder {"BACK", "MID", "FRONT"};
 
             WHEN("Draw is called")
