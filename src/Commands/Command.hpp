@@ -11,10 +11,6 @@ namespace UnLOGO
         public:  static std::string GetStringName() { return Name; }                                               \
         private: inline static bool Registered = CommandKeeper::Register(Name, std::move(std::make_unique<T>()));
 
-    #define DEFINE_(T, Name)                                                                                  \
-        public:  static std::string GetStringName() { return Name; }                                               \
-        private: inline static bool Registered = CommandKeeper::Register(Name, std::move(std::make_unique<T>()));
-
     #define CommandParam_t [[maybe_unused]] std::any
 
     class Command
