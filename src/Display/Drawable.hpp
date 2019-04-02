@@ -19,7 +19,7 @@ namespace UnLOGO
     class Drawable : public sf::Drawable
     {
     public:
-        Drawable()
+        Drawable() //Adds drawable's draw func into drawing container
         {
             using namespace std::placeholders;
             DrawableElements::addElement((static_cast<int>(prority)), std::bind(&Drawable::draw, this, _1, _2));

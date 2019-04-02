@@ -8,7 +8,7 @@
 
 namespace UnLOGO
 {
-
+    //static container of pointers to drawable's draw functions
     class DrawableElements : public sf::Drawable
     {
         using drawFunction_t = std::function<void(sf::RenderTarget&, sf::RenderStates)>;

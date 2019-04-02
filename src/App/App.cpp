@@ -5,9 +5,16 @@
 namespace UnLOGO
 {
 
+    App::~Application()
+    {
+        LOG("Shutting down the application");
+    }
+
     void App::run()
     {
-        init();
+        LOG("Initializing the application");
+            init();
+        LOG("Application has been Initialized");
 
         while (display.isWindowOpen()) {
             display.update();
@@ -21,13 +28,13 @@ namespace UnLOGO
         input.init();
     }
 
-    void App::checkInput()
+    void App::checkInput() // probably that should be resolved in more optimized way
     {
         auto& inp = input.getInput();
         if (!inp.empty()) {
             LOG(inp, "\n\n\n"); // for testing
 
-            commandManager.manageInput(inp);
+            commandManager.manageInput(inp); // that line is a reason why that func should be in App
 
             inp.clear();
         }

@@ -13,10 +13,10 @@ namespace UnLOGO
         const sf::Color& getBackgroundColor() const;
         
         void setBackgroudColor(const sf::Color& bc);
-        void setBackgroundDefoultColor();
+        void setBackgroundDefoultColor(); // white
 
     private:
-        virtual void draw(sf::RenderTarget& target, [[maybe_unused]]sf::RenderStates states) const;
+        virtual void draw(sf::RenderTarget& target, [[maybe_unused]]sf::RenderStates states) const; // clears the window
 
         const sf::Color defaultColor { sf::Color::White };
         sf::Color backgroundColour { defaultColor };

@@ -7,10 +7,12 @@
 
 namespace UnLOGO 
 {
+    //Register command in CommandKeeper
     #define REGISTER(T, Name)                                                                                  \
         public:  static std::string GetStringName() { return Name; }                                               \
         private: inline static bool Registered = CommandKeeper::Register(Name, std::move(std::make_unique<T>()));
 
+    //it is a 'define' instead of 'using' because of the attribute
     #define CommandParam_t [[maybe_unused]] std::any
 
     class Command
@@ -19,7 +21,7 @@ namespace UnLOGO
         Command() = default;
         virtual ~Command() = default;
          
-        virtual void execute(CommandParam_t param) {};
+        virtual void execute(CommandParam_t param) {}; // command body 
     };
 
 }

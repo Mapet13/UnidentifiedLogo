@@ -13,11 +13,12 @@ namespace UnLOGO
     class App
     {
     public:
+        ~Application();
         void run();
 
     private:
         void init();
-        void checkInput(); // I think that is shoudn't be here
+        void checkInput(); // I think that is shouldn't be here || I guess that maybe it is a correct place xD
 
         Display display;
         Input input;
