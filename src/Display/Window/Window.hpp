@@ -9,14 +9,14 @@ namespace UnLOGO
     {
     public:
         void create(const sf::VideoMode& videoMode);
-        bool isOpen();
         void update();
+        bool isOpen();
+        void draw(const sf::Drawable& drawable);
 
     private:
-        sf::RenderWindow window;
-
-        void draw();
         void handleEvents();
+
+        sf::RenderWindow window;
     };
 
 }

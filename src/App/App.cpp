@@ -1,29 +1,31 @@
 #include "App.hpp"
 
-#include <iostream>
+#include "Utilities/Log.hpp"
 
 namespace UnLOGO
 {
 
     App::~App()
     {
+        LOG("Shutting down the application");
         inputThread.detach();
     }
 
-
     void App::run()
     {
-        init();
+        LOG("Initializing the application");
+            init();
+        LOG("Application has been Initialized");
 
-        while (window.isOpen()) {
-            window.update();
+        while (display.isWindowOpen()) {
+            display.update();
             checkInput();
         }
     }
 
     void App::init()
     {
-        window.create(sf::VideoMode(500, 500));
+        display.windowCreate(sf::VideoMode(500, 500));
         inputThread = std::thread(&App::getInput, this, std::ref(input));
     }
 

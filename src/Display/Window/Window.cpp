@@ -1,6 +1,9 @@
-#include "Window.hpp"
+#include "Display/Window/Window.hpp"
 
 #include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+
+#include "Utilities/Log.hpp"
 
 namespace UnLOGO
 {
@@ -8,6 +11,13 @@ namespace UnLOGO
     void Window::create(const sf::VideoMode& videoMode)
     {
         window.create(videoMode, "UnLOGO");
+        LOG("Window created (", videoMode.width, "x", videoMode.height, ")");
+    }
+
+    void Window::update()
+    {
+        window.display();
+        handleEvents();
     }
 
     bool Window::isOpen()
@@ -15,17 +25,9 @@ namespace UnLOGO
         return window.isOpen();
     }
 
-    void Window::update()
+    void Window::draw(const sf::Drawable& drawable)
     {
-        window.clear();
-        draw();   
-        window.display();
-        handleEvents();
-    }
-
-    void Window::draw()
-    {
-
+        window.draw(drawable);
     }
 
     void Window::handleEvents()

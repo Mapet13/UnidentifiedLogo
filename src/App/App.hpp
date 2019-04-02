@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Window/Window.hpp"
+#include "Display/Display.hpp"
 
 #include <thread>
 
@@ -11,18 +11,16 @@ namespace UnLOGO
     {
     public:
         ~App();
-
         void run();
 
     private:
-        Window window;
-        std::string input;
-        std::thread inputThread;
-
         void init();
         void getInput(std::string& input);
         void checkInput();
 
+        Display display;
+        std::string input;
+        std::thread inputThread;
     };
 
 }
