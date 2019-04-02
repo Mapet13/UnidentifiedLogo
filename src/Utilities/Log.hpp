@@ -9,7 +9,6 @@
 class Logger
 {
 public:
-
     template <typename... Args>
     void log(const char* file, int line, Args&&... args)
     {    
@@ -23,7 +22,6 @@ public:
     }
 
 private:
-
     void getCurrentTime()
     {
         auto t = std::time(nullptr);
