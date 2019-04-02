@@ -1,8 +1,7 @@
 #pragma once
 
 #include "Display/Display.hpp"
-
-#include <thread>
+#include "Input/Input.hpp"
 
 namespace UnLOGO
 {
@@ -15,12 +14,10 @@ namespace UnLOGO
 
     private:
         void init();
-        void getInput(std::string& input);
         void checkInput();
 
         Display display;
-        std::string input;
-        std::thread inputThread;
+        Input input;
     };
 
 }

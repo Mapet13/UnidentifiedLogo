@@ -8,7 +8,6 @@ namespace UnLOGO
     App::~App()
     {
         LOG("Shutting down the application");
-        inputThread.detach();
     }
 
     void App::run()
@@ -26,22 +25,15 @@ namespace UnLOGO
     void App::init()
     {
         display.windowCreate(sf::VideoMode(500, 500));
-        inputThread = std::thread(&App::getInput, this, std::ref(input));
-    }
-
-    void App::getInput(std::string& input)
-    {
-        while(true) {
-            std::getline(std::cin, input);
-            std::this_thread::sleep_for(std::chrono::milliseconds(1));
-        }
+        input.init();
     }
 
     void App::checkInput()
     {
-        if(!input.empty()) {
-
-            input.clear();
+        auto& inp = input.getInput();
+        if (!inp.empty()) {
+        
+            inp.clear();
         }
     }
 
